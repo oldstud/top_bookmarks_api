@@ -7,7 +7,7 @@ const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 require('dotenv').config()
 const { HttpCode } = require('./helpers/constants.js')
-const routerApartment = require('./api/apartment')
+const routerMarkbooks = require('./api/markbooks')
 const routerUsers = require('./api/users')
 const routerComment=require('./api/comment')
 const routerConfig=require('./api/config')
@@ -38,7 +38,7 @@ app.use(helmet());
 app.use(cors())
 app.use(express.json({ limit: 10000 }))
 app.use('/api/', limiter)
-app.use('/api/apartment', routerApartment)
+app.use('/api/markbooks', routerMarkbooks)
 app.use('/api/users', routerUsers)
 app.use('/api/comment', routerComment)
 app.use('/api/config', routerConfig)

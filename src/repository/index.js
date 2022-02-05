@@ -1,9 +1,9 @@
-const ApartmentRepository = require('./apartment')
+const MarkboksRepository = require('./markbooks')
 const UsersRepository = require('./users')
 const CommentRepository=require('./comment')
 
 module.exports = {
-    ApartmentRepository,
+    MarkboksRepository,
     UsersRepository,
     CommentRepository
 }

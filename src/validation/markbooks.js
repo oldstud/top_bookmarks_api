@@ -6,19 +6,17 @@ const schemaCreate = Joi.object({
         .min(3)
         .max(30)
         .required(),
-    description: Joi.string()
+    description: Joi.string()  
         .min(3)
         .max(100)
         .required(),
     image: Joi.string().optional(),
+    urlMarkbook: Joi.string()
+        .min(3)
+        .max(250)
+        .required(),
     rating: Joi.string().optional(),
     ratingCounter:Joi.string().optional(),
-    price: Joi.string().optional(),
-    city: Joi.string()
-        .min(3)
-        .max(30)
-        .required(),
-
     owner: Joi.string().optional()
 })
 
@@ -32,14 +30,9 @@ const schemaUpdate = Joi.object({
         .max(100)
         .required(),
     image: Joi.string().optional(),
+    urlMarkbook: Joi.string().optional(),
     rating: Joi.string().optional(),
     ratingCounter:Joi.string().optional(),
-    price: Joi.string().optional(),
-    city: Joi.string()
-        .min(3)
-        .max(30)
-        .optional(),
-
     owner: Joi.string().optional()
 }).min(1);
 
@@ -56,10 +49,10 @@ const validate = (schema, body, next) => {
     next()
 }
 
-module.exports.validateCreateApartment = (req, res, next) => {
+module.exports.validateCreateMarkbooks = (req, res, next) => {
     return validate(schemaCreate, req.body, next)
 }
-module.exports.validateUpdateApartment = (req, res, next) => {
+module.exports.validateUpdateMarkbooks = (req, res, next) => {
     return validate(schemaUpdate, req.body, next)
 }
 

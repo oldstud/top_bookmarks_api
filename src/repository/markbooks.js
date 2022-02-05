@@ -1,11 +1,11 @@
-const ApartmentShema = require('../schemas/apartment.js')
+const markbooksSchema = require('../schemas/markbooks.js')
 const ObjectId = require('mongoose').Types.ObjectId;
 const { HttpCode } = require('../helpers/constants.js')
 const { ErrorHandler } = require('../helpers/errorHandler')
 
-class ApartmentRepository {
+class MarkboksRepository {
     constructor() {
-        this.model = ApartmentShema
+        this.model = markbooksSchema
     }
 
     _checkId(id) {
@@ -58,4 +58,4 @@ class ApartmentRepository {
 }
 
 
-module.exports = ApartmentRepository
+module.exports = MarkboksRepository

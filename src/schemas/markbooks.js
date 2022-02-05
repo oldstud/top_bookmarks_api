@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const apartmentSchema = new Schema({
+const markbookSchema = new Schema({
     title: {
         type: String,
         required: [true, 'title is required']
@@ -11,10 +11,14 @@ const apartmentSchema = new Schema({
         required: [true, 'description is required']
     },
 
-
     image: {
         type: String,
         default: ''
+    },
+
+    urlMarkbook: {
+        type: String,
+        required: [true, 'title is required']
     },
 
     rating: {
@@ -25,16 +29,6 @@ const apartmentSchema = new Schema({
     ratingCounter:{
         type: String,
         default: '0'
-    },
-
-    price: {
-        type: String,
-        default: '0'
-    },
-
-    city: {
-        type: String,
-        required: [true, 'city is required']
     },
 
     owner: {
@@ -48,6 +42,6 @@ const apartmentSchema = new Schema({
     }
 );
 
-const ApartmentShema = mongoose.model('notes', apartmentSchema)
+const markbooksSchema = mongoose.model('markbooks', markbookSchema)
 
-module.exports = ApartmentShema
+module.exports = markbooksSchema

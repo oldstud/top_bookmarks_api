@@ -1,10 +1,10 @@
-const ApartmentService = require('./apartment')
+const MarkbooksServices = require('./markbooks')
 const AuthService = require('./auth')
 const UserService = require('./users')
 const CommentService=require('./comment')
 
 module.exports = {
-    ApartmentService,
+    MarkbooksServices,
     AuthService,
     UserService,
     CommentService

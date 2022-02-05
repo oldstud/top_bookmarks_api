@@ -1,16 +1,16 @@
 const {HttpCode} = require('../helpers/constants.js')
-const {ApartmentService} = require('../services')
+const {MarkbooksServices} = require('../services')
 
-const apartmentService = new ApartmentService();
+const markbooksService = new MarkbooksServices();
 
 const getAll = async (req, res, next) => {
     try {
-        const apartment = await apartmentService.getAll()
+        const markbooks = await markbooksService.getAll()
         res.status(HttpCode.OK).json({
             status: 'success',
             code: HttpCode.OK,
             data: {
-                apartment,
+                markbooks,
             }
         })
     } catch (error) {
@@ -20,14 +20,14 @@ const getAll = async (req, res, next) => {
 
 const getByID = async (req, res, next) => {
     try {
-        const apartment = await apartmentService.getByID(req.params)
+        const markbook = await markbooksService.getByID(req.params)
 
-        if (apartment) {
+        if (markbook) {
             res.status(HttpCode.OK).json({
                 status: 'success',
                 code: HttpCode.OK,
                 data: {
-                    apartment,
+                    markbook,
                 }
             })
         } else {
@@ -42,15 +42,15 @@ const getByID = async (req, res, next) => {
     }
 }
 
-const getAllMyApartment = async (req, res, next) => {
+const getAllMy = async (req, res, next) => {
     try {
         const userId = req.user.id
-        const apartment = await apartmentService.getAllMy(userId)
+        const markbooks = await markbooksService.getAllMy(userId)
         res.status(HttpCode.OK).json({
             status: 'success',
             code: HttpCode.OK,
             data: {
-                apartment,
+                markbooks,
             }
         })
     } catch (error) {
@@ -62,14 +62,14 @@ const getAllMyApartment = async (req, res, next) => {
 const getByIDMy = async (req, res, next) => {
     try {
         const userId = req.user.id
-        const apartment = await apartmentService.getByIDMy(req.params, userId)
+        const markbook = await markbooksService.getByIDMy(req.params, userId)
 
-        if (apartment) {
+        if (markbook) {
             res.status(HttpCode.OK).json({
                 status: 'success',
                 code: HttpCode.OK,
                 data: {
-                    apartment,
+                    markbook,
                 }
             })
         } else {
@@ -87,12 +87,12 @@ const getByIDMy = async (req, res, next) => {
 const create = async (req, res, next) => {
     try {
         const userId = req.user.id
-        const apartment = await apartmentService.create(req.body, userId)
+        const markbook = await markbooksService.create(req.body, userId)
         res.status(HttpCode.CREATED).json({
             status: 'success',
             code: HttpCode.CREATED,
             data: {
-                apartment,
+                markbook,
             }
         })
     } catch (error) {
@@ -103,14 +103,14 @@ const create = async (req, res, next) => {
 const update = async (req, res, next) => {
     try {
         const userId = req.user.id//not need for update rating, maybe need add new method for update by only if this item is some user item
-        const apartment = await apartmentService.update(req.params, req.body, userId)
+        const markbook = await markbooksService.update(req.params, req.body, userId)
 
-        if (apartment) {
+        if (markbook) {
             res.status(HttpCode.OK).json({
                 status: 'success',
                 code: HttpCode.OK,
                 data: {
-                    apartment,
+                    markbook,
                 }
             })
         } else {
@@ -128,14 +128,14 @@ const update = async (req, res, next) => {
 const patch = async (req, res, next) => {
     try {
         const userId = req.user.id
-        const apartment = await apartmentService.update(req.params, req.body, userId)
+        const markbook = await markbooksService.update(req.params, req.body, userId)
 
-        if (apartment) {
+        if (markbook) {
             res.status(HttpCode.OK).json({
                 status: 'success',
                 code: HttpCode.OK,
                 data: {
-                    apartment,
+                    markbook,
                 }
             })
         } else {
@@ -153,9 +153,9 @@ const patch = async (req, res, next) => {
 const remove = async (req, res, next) => {
     try {
         const userId = req.user.id
-        const apartment = await apartmentService.remove(req.params, userId)
+        const markbook = await markbooksService.remove(req.params, userId)
 
-        if (apartment) {
+        if (markbook) {
             res.status(HttpCode.OK).json({
                 status: 'success',
                 code: HttpCode.OK,
@@ -176,7 +176,7 @@ const remove = async (req, res, next) => {
 module.exports = {
     getAll,
     getByID,
-    getAllMyApartment,
+    getAllMy,
     getByIDMy,
     create,
     update,

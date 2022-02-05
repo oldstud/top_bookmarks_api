@@ -1,10 +1,11 @@
-## bookmarks-api
-
-https://apartment-service-api.herokuapp.com/
+# ***************** markbooks-api ******************
+===================================================================================
+## Base API URL
+ https://markbooks-api.herokuapp.com/
 
 ## route:
 
-users:
+## users API route:
 
 - /api/users/registration 'POST';
 - /api/users/login 'POST';
@@ -67,38 +68,38 @@ example request for login user:
 }
 ```
 
-apartment:
+## markbooks API route:
 
-- /api/apartment/all/ 'GET' --get all apartments;
-- /api/apartment/all/:id 'GET'-- get by id;
-- /api/apartment/myaprtment/ 'GET' --get all owner apartments;
-- /api/apartment/myaprtment/:id 'GET'-- get by id owner apartment;
-- /api/apartment/ 'POST' -- create apartment;
-- /api/apartment/myaprtment/:id 'PUT' --update owner apartment by id;
-- /api/apartment/myaprtment/:id 'PATCH' --update owner apartment by id;
-- /api/apartment/myaprtment/:id 'DELETE' --remove owner apartment by id;
+- /api/markbooks/all/ 'GET' --get all markbooks;
+- /api/markbooks/all/:id 'GET'-- get by id;
+- /api/markbooks/mymarkbooks/ 'GET' --get all owner markbooks;
+- /api/markbooks/mymarkbooks/:id 'GET'-- get by id owner markbook;
+- /api/markbooks/ 'POST' -- create markbook;
+- /api/markbooks/mymarkbooks/:id 'PUT' --update owner markbook by id;
+- /api/markbooks/mymarkbooks/:id 'PATCH' --update owner markbook by id;
+- /api/markbooks/mymarkbooks/:id 'DELETE' --remove owner markbook by id;
 
-## shema:
+## shema DB:
 
 user :
 
 - name --String;
-- email --String,required;
-- password --String,required;
+- email --String | required
+- password --String | required
 - avatar --String;
 
-apartment :
+markbooks :
 
-- title --String,required;
-- description --String,required;
+- title --String | required
+- description --String | required
 - image --String;
+- urlMarkbook --String | required
 - rating --String;
-- price --String;
-- city --String; required;
+- ratingCounter --String
 
-functionality:
+## functionality:
 
-- CRUD private collection apartment;
+- CRUD private collection;
 - public collection;
 - user signup login logout;
 - add user avatar;
