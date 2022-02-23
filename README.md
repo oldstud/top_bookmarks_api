@@ -14,7 +14,7 @@
 
 ## markbooks API route:
 
-- /api/comment/ 'GET' --get all markbooks;
+- /api/markbooks/all/ 'GET' --get all markbooks;
 - /api/markbooks/all/:id 'GET'-- get by id;
 - /api/markbooks/mymarkbooks/ 'GET' --get all owner markbooks;
 - /api/markbooks/mymarkbooks/:id 'GET'-- get by id owner markbook;
