@@ -3,16 +3,16 @@ const { HttpCode } = require('../helpers/constants.js')
 
 const schemaCreate = Joi.object({
     title: Joi.string()
-        .min(3)
-        .max(30)
+        .min(1)
+        .max(250)
         .required(),
     description: Joi.string()  
-        .min(3)
-        .max(100)
+        .min(1)
+        .max(250)
         .required(),
     image: Joi.string().optional(),
     urlMarkbook: Joi.string()
-        .min(3)
+        .min(1)
         .max(250)
         .required(),
     rating: Joi.string().optional(),
@@ -22,13 +22,13 @@ const schemaCreate = Joi.object({
 
 const schemaUpdate = Joi.object({
     title: Joi.string()
-        .min(3)
-        .max(30)
-        .required(),
+        .min(1)
+        .max(250)
+        .optional(),
     description: Joi.string()
-        .min(3)
-        .max(100)
-        .required(),
+        .min(1)
+        .max(250)
+        .optional(),
     image: Joi.string().optional(),
     urlMarkbook: Joi.string().optional(),
     rating: Joi.string().optional(),
